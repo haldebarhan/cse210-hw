@@ -8,13 +8,11 @@ class GoalManager
 {
     private List<Goal> _goals;
     private int _score;
-    private Progression _progression;
 
     public GoalManager()
     {
-        _goals = new List<Goal>();
+        _goals = [];
         _score = 0;
-        _progression = new Progression(1, 0);
     }
 
     public void Start()
@@ -24,7 +22,6 @@ class GoalManager
         while (IntMenu != 6)
         {
             Console.Clear();
-            _progression.DisplayProgress();
             DisplayPlayerInfo();
             Menu.DisplayMenu();
             string menu = Console.ReadLine();
@@ -202,7 +199,6 @@ class GoalManager
         string successMessage = $"Congratulations! You have earned {earnedPoints} points.";
 
         _score += earnedPoints;
-        _progression.AddScore(earnedPoints);
 
         Console.WriteLine(successMessage);
         Console.WriteLine($"You now have {_score} points.");
@@ -261,7 +257,6 @@ class GoalManager
             using StreamReader streamReader = new StreamReader(filePath);
             string scoreLine = await streamReader.ReadLineAsync();
             int score = int.Parse(scoreLine);
-            _progression.LoadProgression(score);
             SetScore(score);
 
             string line;

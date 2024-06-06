@@ -14,12 +14,10 @@ class Video
         _comments = [];
     }
 
-
     public int NumberOfComments()
     {
         return _comments.Count;
     }
-
 
     public void VideoDetails()
     {
@@ -31,7 +29,6 @@ class Video
             comment.ShowComment();
         }
     }
-
 
     private static List<int> ConvertSecondToTime(int second)
     {
